@@ -1,19 +1,22 @@
-<!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Hi</title>
+
 </head>
 <body>
 
 <h1>Welcome....</h1>
-<div class="editor">
+<div class="editor" >
+    <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+    <form method="post" id="textForm" th:action="${'/note/update/'+domain}" target="dummyframe">
+        <textarea id="textEditor" name="textEditor" placeholder="Start Typing ..." th:text="${note}" rows="50" cols="100">
+            NOTE
+        </textarea>
+    </form>
 
-    <textarea placeholder="Start Typing ..." th:text="${note}">
-        NOTE
-    </textarea>
-
-
+    <script type="text/javascript" th:src="@{/js/TextEditorListeners.js}"></script>
 
 </div>
 

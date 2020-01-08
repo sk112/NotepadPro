@@ -1,14 +1,13 @@
 package org.example.app.model;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
+@Table(name="note_table")
 public class NoteEntity {
 
     @Id

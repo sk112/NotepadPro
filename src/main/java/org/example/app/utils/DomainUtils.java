@@ -1,5 +1,6 @@
 package org.example.app.utils;
 
+import ch.qos.logback.core.db.dialect.DBUtil;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.example.app.model.NoteEntity;
 import org.springframework.beans.factory.annotation.Value;
@@ -115,5 +116,9 @@ public class DomainUtils {
             DBUtils.updateDomainInDB(domain);
         }
         return newDomain;
+    }
+
+    public static void saveNoteInDomain(String domain, String note){
+        DBUtils.saveNoteInDomain(domain, note);
     }
 }

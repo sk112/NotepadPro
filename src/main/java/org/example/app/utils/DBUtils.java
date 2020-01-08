@@ -28,9 +28,25 @@ public class DBUtils {
         noteRepository.save(noteEntity);
     }
 
+    static void findAndUpdateNote(String domain,String note){
+        NoteEntity noteEntity = getNoteEntityByDomain(domain);
+
+        noteEntity.setNote(note);
+        noteRepository.save(noteEntity);
+    }
+
+
     static NoteEntity getNoteEntityByDomain(String domain){
         return noteRepository.findByDomain(domain);
     }
+
+    static void saveNoteInDomain(String domain, String note){
+        NoteEntity noteEntity = getNoteEntityByDomain(domain);
+        noteEntity.setNote(note);
+
+        noteRepository.save(noteEntity);
+    }
+
 
 
 }

@@ -1,13 +1,17 @@
 package org.example.app.controllers;
 
 
+import ch.qos.logback.core.db.dialect.DBUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import org.example.app.utils.DomainUtils;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @Controller
@@ -52,8 +56,21 @@ public class Notepad {
 
         model.addAttribute("note", note);
         model.addAttribute("note_length", note.length());
+        model.addAttribute("domain", domain);
 
         return "home";
     }
+
+    @PostMapping("/update/{param}")
+    public String updateNote(@PathVariable("param") String domain, HttpServletRequest request){
+
+        String note = request.getParameter("textEditor");
+        log.info(request.toString());
+
+
+        DomainUtils.saveNoteInDomain(domain, note);
+        return "redirect:/note/"+domain;
+    }
+
 
 }
