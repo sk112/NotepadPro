@@ -1,6 +1,5 @@
 package org.example.app.model;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Data;
 
 import javax.persistence.*;

@@ -11,7 +11,7 @@
 <div class="editor" >
     <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
     <form method="post" id="textForm" th:action="${'/note/update/'+domain}" target="dummyframe">
-        <textarea id="textEditor" name="textEditor" placeholder="Start Typing ..." th:text="${note}" rows="50" cols="100">
+        <textarea id="textEditor" name="textEditor" placeholder="Start Typing ..." th:text="${note}" rows="10" cols="10">
             NOTE
         </textarea>
     </form>

@@ -169,5 +169,6 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>NotepadPro</finalName>
     </build>
 </project>
