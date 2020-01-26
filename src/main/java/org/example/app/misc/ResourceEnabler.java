@@ -15,5 +15,8 @@ public class ResourceEnabler implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/js/**")
                 .addResourceLocations("classpath:/static/js/");
+
+        registry.addResourceHandler("/css/**")
+                .addResourceLocations("classpath:/static/css/");
     }
 }

@@ -1,6 +1,7 @@
 package org.example.app.model;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 
@@ -17,9 +18,12 @@ public class NoteEntity {
 
     private String note;
 
-    public NoteEntity(String domain, String note){
+    private Integer trigger=0;
+
+    public NoteEntity(String domain, String note, Integer trigger){
         this.domain = domain;
         this.note = note;
+        this.trigger = trigger;
     }
 
     public NoteEntity(){}

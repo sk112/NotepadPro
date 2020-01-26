@@ -24,7 +24,7 @@ public class DBUtils {
     }
 
     static void updateDomainInDB(String randomDomain, String note){
-        NoteEntity noteEntity = new NoteEntity(randomDomain, note);
+        NoteEntity noteEntity = new NoteEntity(randomDomain, note, 0);
         noteRepository.save(noteEntity);
     }
 
@@ -43,10 +43,13 @@ public class DBUtils {
     static void saveNoteInDomain(String domain, String note){
         NoteEntity noteEntity = getNoteEntityByDomain(domain);
         noteEntity.setNote(note);
-
+        noteEntity.setTrigger(noteEntity.getTrigger()+1);
         noteRepository.save(noteEntity);
     }
 
-
+    static Integer getTriggerValue(String domain){
+        NoteEntity noteEntity = getNoteEntityByDomain(domain);
+        return noteEntity.getTrigger();
+    }
 
 }

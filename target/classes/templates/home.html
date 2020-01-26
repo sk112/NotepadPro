@@ -1,14 +1,14 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hi</title>
-
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
 </head>
 <body>
 
-<h1>Welcome....</h1>
-<div class="editor" >
+<h1 class="heading">Welcome....</h1>
+<div class="editor" th:id="${Id}">
     <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
     <form method="post" id="textForm" th:action="${'/note/update/'+domain}" target="dummyframe">
         <textarea id="textEditor" name="textEditor" placeholder="Start Typing ..." th:text="${note}" rows="10" cols="10">
@@ -16,7 +16,7 @@
         </textarea>
     </form>
 
-    <script type="text/javascript" th:src="@{/js/TextEditorListeners.js}"></script>
+    <script type="text/javascript" th:src="@{/js/TextEditorListeners.js?n=1}"></script>
 
 </div>
 

@@ -26,6 +26,14 @@ public class DomainUtils {
     }
 
     /**
+     * Unique ID for each session : used to identify the session
+     */
+    public static Integer getSessionID(String domain){
+        NoteEntity noteEntity = DBUtils.getNoteEntityByDomain(domain);
+        return noteEntity.getId();
+    }
+
+    /**
      * Generates and Returns Random Domain
      * @return randomDomain: Random Generated Domain
      */
@@ -120,5 +128,9 @@ public class DomainUtils {
 
     public static void saveNoteInDomain(String domain, String note){
         DBUtils.saveNoteInDomain(domain, note);
+    }
+
+    public static Integer getTriggerValueOfCurrentDomain(String domain){
+        return DBUtils.getTriggerValue(domain);
     }
 }
